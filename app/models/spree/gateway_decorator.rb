@@ -15,4 +15,14 @@ Spree::Gateway.class_eval do
   preference :test_mode, :boolean, :default => false
 
   attr_accessible :tag_list
+
+
+  # method_missing should not depend on #provider having already been called
+  def method_missing(method, *args)
+    if provider.nil? || !provider.respond_to?(method)
+      super
+    else
+      provider.send(method, *args)
+    end
+  end
 end
