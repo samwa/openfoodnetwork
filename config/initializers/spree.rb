@@ -8,6 +8,7 @@
 
 
 require 'spree/product_filters'
+require 'spree/core/calculated_adjustments_decorator'
 
 Spree.config do |config|
   config.shipping_instructions = true
