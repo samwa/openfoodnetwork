@@ -1,4 +1,6 @@
 Spree::PaymentMethod.class_eval do
+  Spree::PaymentMethod::DISPLAY = [:both, :front_end, :back_end]
+
   acts_as_taggable
 
   # See gateway_decorator.rb when modifying this association
